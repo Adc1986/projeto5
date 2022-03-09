@@ -1,0 +1,16 @@
+
+
+.textcenter{
+ display: flex;
+ justify-content: center;
+ Flex-direction: column;
+ align-items: center;
+
+}
+
+.textprinc{
+    color: blue;
+    font-size: 2cm;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}

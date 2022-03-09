@@ -1,0 +1,22 @@
+
+.text-pri{
+    color: blue;
+    font-family: fantasy;
+    font-size: 1,5cm;
+}
+
+.textcente{
+    display: flex;
+    justify-content: center;
+    Flex-direction: column;
+    align-items: center;
+   
+   }
+
+.tam-img{
+    display: flex;
+    float: right;
+  max-width: 200px;
+  max-height: 200px;
+  
+}
