@@ -1,0 +1,84 @@
+.container-sign{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login{
+    background: #fffdf1;
+    width: 400px;
+    height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgb(13, 27, 230), 0 0 10px rgb(13, 27, 230), 0 0 20px rgb(13, 27, 230), 0 0 20px rgb(13, 27, 230);
+  }
+  
+  .login-area{
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to left, rgb(13, 27, 230), rgb(13, 27, 230), rgb(13, 27, 230) );
+    width: 100%;
+    height: 100vh;
+    border-radius: 10px 10px 0px 0;
+  }
+  
+  .login-area h1{
+      color: white;
+    letter-spacing:12px;
+    font-size: 40px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Fabada-regular' ;
+  }
+  
+  form{
+    margin-top: 1.5em;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form h1{
+    text-align: center;
+    margin-bottom: 0.5em;
+    color: #050200;
+  }
+  
+  .login input{
+    margin-bottom: 15px;
+    height: 35px;
+    border:0;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: #afaeae;
+  }
+  
+  
+  .login a{
+    margin: 1.5em 0;
+    color: #000;
+    cursor: pointer;
+  }
+  form .frase {
+      display: flex;
+      text-align: center;
+  }
+
+  .btn{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    cursor: pointer;
+    
+  }
+
+ 

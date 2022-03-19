@@ -1,0 +1,16 @@
+.pasnome{
+    color: blue;
+    font-family: fantasy;
+    font-size: 1,5cm;
+    text-align: center;
+}
+
+.btnl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 10 px;
+    margin:0 15px;
+}
+
