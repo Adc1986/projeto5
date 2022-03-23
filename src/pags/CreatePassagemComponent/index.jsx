@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PassagemService from '../Services/PassagemService';
 
+
 class CreatePassagemComponent extends Component {
     constructor(props) {
         super(props)
@@ -8,13 +9,13 @@ class CreatePassagemComponent extends Component {
         this.state = {
             // step 2
             id: this.props.match.params.id,
-            firstName: '',
-            lastName: '',
-            emailId: ''
+            name: '',
+            valor: ''
+           
         }
-        this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
-        this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
-        this.saveOrUpdateEmployee = this.saveOrUpdateEmployee.bind(this);
+        this.changeNameHandler = this.changeNameHandler.bind(this);
+        this.changeValorHandler = this.changeValorHandler.bind(this);
+        this.saveOrUpdatePassagem = this.saveOrUpdatePassagem.bind(this);
     }
 
     // step 3
@@ -25,17 +26,17 @@ class CreatePassagemComponent extends Component {
             return
         }else{
             PassagemService.getPassagemById(this.state.id).then( (res) =>{
-                let employee = res.data;
-                this.setState({firstName: passagem.firstName,
-                    lastName: passagem.lastName,
-                    emailId : passagem.emailId
+                let passagem = res.data;
+                this.setState({name: passagem.name,
+               valor: passagem.valor,
+                    
                 });
             });
         }        
     }
-    saveOrUpdatepassagem = (e) => {
+    saveOrUpdatePassagem = (e) => {
         e.preventDefault();
-        let employee = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.emailId};
+        let passagem = {name: this.state.name, valor: this.state.valor};
         console.log('passagem => ' + JSON.stringify(passagem));
 
         // step 5
@@ -44,23 +45,20 @@ class CreatePassagemComponent extends Component {
                 this.props.history.push('/passagem');
             });
         }else{
-            PassagemService.updatePassagem(employee, this.state.id).then( res => {
+            PassagemService.updatePassagem(passagem, this.state.id).then( res => {
                 this.props.history.push('/passagem');
             });
         }
     }
     
-    changeFirstNameHandler= (event) => {
-        this.setState({firstName: event.target.value});
+    changeNameHandler= (event) => {
+        this.setState({name: event.target.value});
     }
 
-    changeLastNameHandler= (event) => {
-        this.setState({lastName: event.target.value});
+    changeValorHandler= (event) => {
+        this.setState({valor: event.target.value});
     }
 
-    changeEmailHandler= (event) => {
-        this.setState({emailId: event.target.value});
-    }
 
     cancel(){
         this.props.history.push('/passagem');
@@ -74,37 +72,43 @@ class CreatePassagemComponent extends Component {
         }
     }
     render() {
-        return (
-            <section>
-            <Header/>
-            <h1 className='pasnome'>PASSAGEM</h1>
-            <br/>
-            <hr/>
-            <br/>
+        return(
+        <div>
+           
+        <br></br>
+           <div className = "container">
+                <div className = "row">
+                    <div className = "card col-md-6 offset-md-3 offset-md-3">
+                        {
+                            this.getTitle()
+                        }
+                        <div className = "card-body">
+                            <form>
+                                <div className = "form-group">
+                                    <label> Name: </label>
+                                    <input placeholder="Name" name="name" className="form-control" 
+                                        value={this.state.name} onChange={this.changeNameHandler}/>
+                                </div>
+                                <div className = "form-group">
+                                    <label> Valor: </label>
+                                    <input placeholder="Valor" name="valor" className="form-control" 
+                                        value={this.state.valor} onChange={this.changeValorHandler}/>
+                                </div>
+                               
 
-            <div class="row">
-            <div class="card">
-        <img class="image" src="/img/ceara.jpg" alt="ceara" />
-       <form>
-       <input type="local" placeholder="local" />
-                  <input type="valor" placeholder="$" />
-       </form>
-        <div id="btn">
-            <div className='btnl'>
-                        <button  type="submit" className='btn btn-primary m-2'>Add</button>
-                        <button  type="submit" className='btn btn-primary m-2'>Update</button>
-                        <button  type="submit" className='btn btn-danger m-2'>Delete</button>
+                                <button className="btn btn-success" onClick={this.saveOrUpdatePassagem}>Save</button>
+                                <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
+                            </form>
+                        </div>
                     </div>
-                    </div>
-      </div>
-      </div>
+                </div>
 
-
-
-            <Footer/>
-        </section>
-        )
-    }
+           </div>
+          
+    </div>
+)
+}
 }
 
-export default CreateEmployeeComponent;
+
+export default CreatePassagemComponent;

@@ -21,7 +21,7 @@ class Passagem extends Component {
     this.setState({passagem: this.state.passagem.filter(passagem => passagem.id !== id)});
     });
     
-   
+}
     editPassagem(id){
     this.props.history.push(`/add-passagem/${id}`);
     }
@@ -42,30 +42,44 @@ class Passagem extends Component {
     return(
         <section>
             <Header/>
-            <h1 className='pasnome'>PASSAGEM</h1>
-            <br/>
-            <hr/>
-            <br/>
+            <div>
+                 <h2 className="text-center">Passagem</h2>
+                 <div className = "row">
+                    <button className="btn btn-primary" onClick={this.addPassagem}> Add Passagem</button>
+                 </div>
+                 <br></br>
+                 <div className = "row">
+                        <table className = "table table-striped table-bordered">
 
-            <div class="row">
-            <div class="card">
-        <img class="image" src="/img/ceara.jpg" alt="ceara" />
-       <form>
-       <input type="local" placeholder="local" />
-                  <input type="valor" placeholder="$" />
-       </form>
-        <div id="btn">
-            <div className='btnl'>
-                        <button  type="submit" className='btn btn-primary m-2'>Add</button>
-                        <button  type="submit" className='btn btn-primary m-2'>Update</button>
-                        <button  type="submit" className='btn btn-danger m-2'>Delete</button>
-                    </div>
-                    </div>
-      </div>
-      </div>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th> Valor</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    this.state.passagem.map(
+                                        passagem => 
+                                        <tr key = {passagem.id}>
+                                             <td> { passagem.name} </td>   
+                                             <td> {passagem.valor}</td>
+                                             
+                                             <td>
+                                                 <button onClick={ () => this.editPassagem(passagem.id)} className="btn btn-info">Update </button>
+                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.deletePassagem(passagem.id)} className="btn btn-danger">Delete </button>
+                                                
+                                             </td>
+                                        </tr>
+                                    )
+                                }
+                            </tbody>
+                        </table>
 
+                 </div>
 
-
+            </div>
             <Footer/>
         </section>
     );

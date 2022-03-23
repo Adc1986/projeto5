@@ -6,24 +6,25 @@ import Passagem from './pags/Passagem';
 import Promocoes from './pags/Promocoes';
 import Contato from './pags/Contato';
 import CreatePassagemComponent from './pags/CreatePassagemComponent';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 
 
 function App() {
   return (
-   <BrowserRouter>
+  
    
-   <Routes>
-     <Route path="/"exact element={<Home/>}/>
-     <Route path="/Login" element={<Login/>}/>
-     <Route path="/Destino" element={<Destino/>}/>
-     <Route path="/Passagem" element={<Passagem/>}/>
-     <Route path="/Promocoes" element={<Promocoes/>}/>
-     <Route path="/Contato" element={<Contato/>}/>
-     <Route path="/add-passagem" element={<CreatePassagemComponent/>}/>
-
-   </Routes>
-   </BrowserRouter>
+   <Router>
+     <Switch>
+     <Route path="/"exact component={Home}/>
+     <Route path="/Login" component={Login}/>
+     <Route path="/Destino" component={Destino}/>
+     <Route path="/Passagem" component={Passagem}/>
+     <Route path="/Promocoes" component={Promocoes}/>
+     <Route path="/Contato" component={Contato}/>
+    < Route path="/add-passagem/:id" component={CreatePassagemComponent}/>
+     </Switch>
+   </Router>
+  
       
    
     
