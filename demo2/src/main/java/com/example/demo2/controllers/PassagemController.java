@@ -82,7 +82,7 @@ public class PassagemController {
 				}
 	private Passagem converter(PassagemDTO dto) {
 		Passagem passagem = new Passagem();
-		passagem.setName(dto.getNome());
+		passagem.setName(dto.getName());
 		passagem.setValor(dto.getValor());
 		
 		return passagem;

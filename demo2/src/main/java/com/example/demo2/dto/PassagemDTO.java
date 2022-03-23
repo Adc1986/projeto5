@@ -5,17 +5,17 @@ import java.util.Objects;
 public class PassagemDTO {
 	
 	private Long id;
-	private String nome;
+	private String name;
 	private String valor;
 	
 	public PassagemDTO() {
 		
 	}
 
-	public PassagemDTO(Long id, String nome, String valor) {
+	public PassagemDTO(Long id, String name, String valor) {
 		super();
 		this.id = id;
-		this.nome = nome;
+		this.name = name;
 		this.valor = valor;
 	}
 
@@ -27,12 +27,12 @@ public class PassagemDTO {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getValor() {
@@ -45,7 +45,7 @@ public class PassagemDTO {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, nome, valor);
+		return Objects.hash(id, name, valor);
 	}
 
 	@Override
@@ -57,12 +57,12 @@ public class PassagemDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		PassagemDTO other = (PassagemDTO) obj;
-		return Objects.equals(id, other.id) && Objects.equals(nome, other.nome) && Objects.equals(valor, other.valor);
+		return Objects.equals(id, other.id) && Objects.equals(name, other.name) && Objects.equals(valor, other.valor);
 	}
 
 	@Override
 	public String toString() {
-		return "PassagemDTO [id=" + id + ", nome=" + nome + ", valor=" + valor + "]";
+		return "PassagemDTO [id=" + id + ", nome=" + name + ", valor=" + valor + "]";
 	}
 	
 	
